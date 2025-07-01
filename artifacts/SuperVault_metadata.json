@@ -1,0 +1,80 @@
+{
+	"compiler": {
+		"version": "0.8.18+commit.87f61d96"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "getNumber",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_number",
+						"type": "uint256"
+					}
+				],
+				"name": "setNumber",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"remix-section-2/SuperStorage.sol": "SuperVault"
+		},
+		"evmVersion": "paris",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"remix-section-2/Storage.sol": {
+			"keccak256": "0xde8d16d3ccc9708cc2fd8f93f5eda26aae293e2a6234f9740e36ee20d34f27d1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://b5f2e8ef94fd3c2cb64b94ee46cd744ad5747f47c94b76030e51e356cad5a67c",
+				"dweb:/ipfs/QmaqAtciU1d8eECqUAr7cfvcitW5SFLhKbLRcGnj5GDKnw"
+			]
+		},
+		"remix-section-2/SuperStorage.sol": {
+			"keccak256": "0xd3e8af3a85c4eba6cd444fc12e98de4e57c6b0d0b8babccd71e4f0d8ea749d10",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://dcb22bfb96ba34fa216c74b9bb670f782d5343d60503fbc1fa87849d84117794",
+				"dweb:/ipfs/QmeE215n1yUDMdcBQeRDn6bjh8rzpvqdJx9cQCKbeZngUk"
+			]
+		}
+	},
+	"version": 1
+}

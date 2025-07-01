@@ -1,0 +1,104 @@
+{
+	"compiler": {
+		"version": "0.8.18+commit.87f61d96"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_name",
+						"type": "string"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "getName",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getNumber",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_number",
+						"type": "uint256"
+					}
+				],
+				"name": "setNumber",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"remix-section-2/NamedStorage.sol": "NamedVault"
+		},
+		"evmVersion": "paris",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"remix-section-2/NamedStorage.sol": {
+			"keccak256": "0xf0ebcce485a1df0d10003005275866b3c0dd85bb2c4c9ca8a0fccae813fcc3e4",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://70c7313b566a8d7d282f62c42b08afad3315883c7b08086ab7ad5625556b0ffd",
+				"dweb:/ipfs/QmRhirrzhP1XwQEj3MFLsEV881Cesaow9b13zgSTg9LzwG"
+			]
+		},
+		"remix-section-2/Storage.sol": {
+			"keccak256": "0xde8d16d3ccc9708cc2fd8f93f5eda26aae293e2a6234f9740e36ee20d34f27d1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://b5f2e8ef94fd3c2cb64b94ee46cd744ad5747f47c94b76030e51e356cad5a67c",
+				"dweb:/ipfs/QmaqAtciU1d8eECqUAr7cfvcitW5SFLhKbLRcGnj5GDKnw"
+			]
+		}
+	},
+	"version": 1
+}

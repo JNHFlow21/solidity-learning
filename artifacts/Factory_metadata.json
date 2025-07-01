@@ -1,0 +1,195 @@
+{
+	"compiler": {
+		"version": "0.8.18+commit.87f61d96"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "allVaults",
+				"outputs": [
+					{
+						"internalType": "contract InitialVault",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_name",
+						"type": "string"
+					},
+					{
+						"internalType": "enum VaultType",
+						"name": "_type",
+						"type": "uint8"
+					}
+				],
+				"name": "createVault",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getAllVaultsCount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_index",
+						"type": "uint256"
+					}
+				],
+				"name": "getVault",
+				"outputs": [
+					{
+						"internalType": "contract InitialVault",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_index",
+						"type": "uint256"
+					}
+				],
+				"name": "getVaultName",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_index",
+						"type": "uint256"
+					}
+				],
+				"name": "getVaultNumber",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_index",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_num",
+						"type": "uint256"
+					}
+				],
+				"name": "setVaultNumber",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"remix-section-2/Factory.sol": "Factory"
+		},
+		"evmVersion": "paris",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"remix-section-2/Factory.sol": {
+			"keccak256": "0x0a3db461a9d7c08ac4044c8cf63fad0447b1c2cccfa99a26d2d778cd9e11fc88",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://743eba1c47ea97430d9526b8bd237c9527892b95fef2aa636bb305217aead67e",
+				"dweb:/ipfs/QmNbR6GgnJpXwftYL64TCVxGMEB2ne4oQK6UbWc89EEEBW"
+			]
+		},
+		"remix-section-2/NamedStorage.sol": {
+			"keccak256": "0x9a40bc993475f049de97f383d1023658c7ddc6721fae223f1db2c9ebc68f1d8a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://072548464e37f368b2e6c4fd042896a06574c599b0290b147b71d512d45fb3be",
+				"dweb:/ipfs/Qmc6Sm1pUT5PFf9cnD5c1SfdGVsANNtDThH6z5TkW9CaHm"
+			]
+		},
+		"remix-section-2/Storage.sol": {
+			"keccak256": "0xde8d16d3ccc9708cc2fd8f93f5eda26aae293e2a6234f9740e36ee20d34f27d1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://b5f2e8ef94fd3c2cb64b94ee46cd744ad5747f47c94b76030e51e356cad5a67c",
+				"dweb:/ipfs/QmaqAtciU1d8eECqUAr7cfvcitW5SFLhKbLRcGnj5GDKnw"
+			]
+		},
+		"remix-section-2/SuperStorage.sol": {
+			"keccak256": "0x3fd23ae9c9aa1af08c5944f812a771c4703a0b92962cdb6c0f15a7aea0d66129",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://f76ca93bef4839db1e0b78c85840d0029292bec4e62a90156ac34c19019795a0",
+				"dweb:/ipfs/QmVNkeLpp7bK4SNmDf9WJAYiWzsnr48w6gqLdH5e9rLZvG"
+			]
+		}
+	},
+	"version": 1
+}
