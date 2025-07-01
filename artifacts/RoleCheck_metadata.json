@@ -1,0 +1,83 @@
+{
+	"compiler": {
+		"version": "0.8.18+commit.87f61d96"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_code",
+						"type": "uint256"
+					}
+				],
+				"name": "exposeCheck",
+				"outputs": [],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_code",
+						"type": "uint256"
+					}
+				],
+				"name": "isAdmin",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Permission.sol": "RoleCheck"
+		},
+		"evmVersion": "paris",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Permission.sol": {
+			"keccak256": "0x4b12a79bcf52e4994c2a43e06d80df2b59ffd4d2cf8506898b128726b851718e",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://83ad3c5547fc43688dddfc6c42c18a6d317ee61c49673f9e32b548b08b27edb2",
+				"dweb:/ipfs/QmPKe3eAmH8Yq7cywhKCzNxP3dzshLbpHRwt1gn9ujJB7x"
+			]
+		}
+	},
+	"version": 1
+}

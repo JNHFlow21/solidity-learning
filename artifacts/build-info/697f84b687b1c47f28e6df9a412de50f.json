@@ -1,0 +1,68 @@
+{
+	"id": "697f84b687b1c47f28e6df9a412de50f",
+	"_format": "hh-sol-build-info-1",
+	"solcVersion": "0.8.18",
+	"solcLongVersion": "0.8.18+commit.87f61d96",
+	"input": {
+		"language": "Solidity",
+		"sources": {
+			"mapping.sol": {
+				"content": "// SPDX-License-Identifier: MIT\npragma solidity 0.8.18;\n\n/*\n✍️ 练习题：编写一个简单投票映射系统\n\n请你完成一个合约 VoteBox，实现以下功能：\n\n📌 功能要求：\n\t1.\t创建一个 mapping(address => bool) public hasVoted;\n\t2.\t创建一个 uint public totalVotes;\n\t3.\t实现一个函数 vote()：\n\t•\t如果用户之前投过票，则禁止再次投票；\n\t•\t如果没投过，记录他已投票，并使 totalVotes +1\n✨ Bonus：\n\t•\t添加一个函数 hasUserVoted(address _user) 返回这个地址是否投票过。\n*/"
+			}
+		},
+		"settings": {
+			"optimizer": {
+				"enabled": false,
+				"runs": 200
+			},
+			"outputSelection": {
+				"*": {
+					"": [
+						"ast"
+					],
+					"*": [
+						"abi",
+						"metadata",
+						"devdoc",
+						"userdoc",
+						"storageLayout",
+						"evm.legacyAssembly",
+						"evm.bytecode",
+						"evm.deployedBytecode",
+						"evm.methodIdentifiers",
+						"evm.gasEstimates",
+						"evm.assembly"
+					]
+				}
+			},
+			"remappings": []
+		}
+	},
+	"output": {
+		"sources": {
+			"mapping.sol": {
+				"ast": {
+					"absolutePath": "mapping.sol",
+					"exportedSymbols": {},
+					"id": 2,
+					"license": "MIT",
+					"nodeType": "SourceUnit",
+					"nodes": [
+						{
+							"id": 1,
+							"literals": [
+								"solidity",
+								"0.8",
+								".18"
+							],
+							"nodeType": "PragmaDirective",
+							"src": "32:23:0"
+						}
+					],
+					"src": "32:526:0"
+				},
+				"id": 0
+			}
+		}
+	}
+}
