@@ -1,6 +1,7 @@
 # Solidity 学习笔记仓库
 
 本仓库是我系统学习智能合约开发（Solidity）的过程记录与代码合集。内容将**持续更新**，包括视频学习笔记、实战练习题、综合项目等，供自己复习巩固，也希望能帮助到其他 Web3 学习者。
+目前的目标是把2️⃣ Solidity 的课程学习完，然后去参加一个黑客松。
 
 ---
 
@@ -42,9 +43,23 @@
 - **学习方式**： 
 
 ---
+
+## 📂 仓库结构说明
+
+```bash
+solidity-learning/
+├── DeFi 预售合约（Token Presale with Linear Vesting）   # Patrick Collins Remix课程 综合练习：DeFi 预售合约（带线性解锁）
+├── remix-fundme/                                        # Remix-Section 3：CryptoCrowdfund 练习
+├── remix-section-2/                                     # Remix-Section 2：数据位置与存储练习（Storage、Memory）
+├── section-1/                                            # Remix-Section 1：Solidity 基础语法练习（Hello World）
+└── README.md                                            # 项目说明文件（当前这个文档）
+
+```
+---
 📬 联系我
 
 如有建议或交流意愿，欢迎 Issue 或 PR。
+也可以添加下面的联系方式，欢迎各位web3的朋友！
 
 - GitHub: @JNHFlow21
 - 小红书: 1017180966
