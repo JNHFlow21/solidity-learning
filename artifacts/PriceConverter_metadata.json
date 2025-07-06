@@ -18,7 +18,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"remix-fundme/GetPrice.sol": "PriceConverter"
+			"DeFi 预售合约（Token Presale with Linear Vesting）/PriceConverter.sol": "PriceConverter"
 		},
 		"evmVersion": "paris",
 		"libraries": {},
@@ -40,12 +40,12 @@
 				"dweb:/ipfs/QmaG6vz6W6iEUBsbHSBob5mdcitYxWjoygxREHpsJHfWrS"
 			]
 		},
-		"remix-fundme/GetPrice.sol": {
-			"keccak256": "0x2f2038a767786ad5153adc27f064a8c735162bc5edcc1c8f0fc4253a9581e310",
+		"DeFi 预售合约（Token Presale with Linear Vesting）/PriceConverter.sol": {
+			"keccak256": "0x9213b6463ab59eaf2a968fad6227d865348d729040c6151fd96a2bad0dc60080",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://1e7b8bc8c8be51ae8f98bdf1730c62a1eb36fdc0f8540c8670ff825096eebd24",
-				"dweb:/ipfs/QmdncUGBMfNWmfXS2E99AmR8nUsF4fs5hnWrCp8QnjQyo4"
+				"bzz-raw://67a426ba7d8d69b7ac5045dbfa8167232862e3dbfe9ced18f880ed3de780a9d0",
+				"dweb:/ipfs/QmU8wFzAMqsxXHsfspWDCwqqiPpGDy1s6Xogoyvdz6X22B"
 			]
 		}
 	},
