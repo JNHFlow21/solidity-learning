@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>交互式加密货币学习指南</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Chosen Palette: Warm Neutrals -->
+    <!-- Application Structure Plan: The application is designed as a non-linear, interactive learning journey, transforming the report's chapters into thematic modules. This structure prioritizes user engagement and self-paced exploration over passive reading. The user flow starts with mandatory risk awareness, then allows free navigation between 'Core Concepts', 'Trading Hub', 'Project Evaluation', and a 'Resource Library'. This is more effective for learning complex topics as it allows users to revisit and connect concepts in an order that makes sense to them, using interactive elements like diagrams, comparison tools, and checklists to reinforce knowledge. -->
+    <!-- Visualization & Content Choices: 
+        - Risk/Finance (Inform): Interactive cards for key terms. Justification: More engaging than a list. Method: HTML/CSS/JS.
+        - Core Concepts (Organize/Relate): An interactive flowchart diagram. Justification: Visually shows relationships between complex technologies (Blockchain -> Smart Contracts -> DeFi/NFTs). Method: HTML/Tailwind/JS for dynamic content display.
+        - Trading Strategies (Compare): A doughnut chart for diversification and a toggleable comparison table. Justification: The chart visually demonstrates risk management, while the table clearly contrasts different approaches. Library: Chart.js.
+        - Project Evaluation (Guide): An interactive checklist with "Green/Red Flags". Justification: Gamifies the due diligence process, making it more memorable and practical. Method: HTML/Tailwind/JS.
+        - Resource Library (Organize): A filterable grid of cards. Justification: Provides a user-friendly way to find relevant learning materials. Method: JS for filtering.
+        All choices avoid static text dumps and instead promote active learning through interaction. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+      body {
+        font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+          sans-serif;
+      }
+      .nav-link {
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+      .nav-link.active {
+        color: #ca8a04; /* yellow-600 */
+        border-bottom-color: #ca8a04;
+      }
+      .content-section {
+        display: none;
+      }
+      .content-section.active {
+        display: block;
+      }
+      .card-flip {
+        perspective: 1000px;
+      }
+      .card-flip-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+      }
+      .card-flip.flipped .card-flip-inner {
+        transform: rotateY(180deg);
+      }
+      .card-face {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .card-back {
+        transform: rotateY(180deg);
+      }
+      .resource-card {
+        transition: opacity 0.3s, transform 0.3s;
+      }
+      .chart-container {
+        position: relative;
+        margin: auto;
+        height: 320px;
+        width: 100%;
+        max-width: 320px;
+      }
+    </style>
+  </head>
+  <body class="bg-stone-50 text-gray-800">
+    <div id="app" class="container mx-auto p-4 md:p-8 max-w-7xl">
+      <header class="text-center mb-8">
+        <h1 class="text-4xl md:text-5xl font-bold text-amber-900 mb-2">
+          加密货币投资学习指南
+        </h1>
+        <p class="text-lg text-gray-600">从零开始的交互式全面探索</p>
+      </header>
+
+      <div
+        class="sticky top-0 bg-stone-50 z-10 mb-8 border-b-2 border-stone-200"
+      >
+        <nav
+          id="main-nav"
+          class="flex justify-center space-x-4 md:space-x-8 text-sm md:text-lg font-semibold text-gray-500"
+        >
+          <a
+            class="nav-link py-4 border-b-2 border-transparent"
+            data-target="risk"
+            >风险与基础</a
+          >
+          <a
+            class="nav-link py-4 border-b-2 border-transparent"
+            data-target="concepts"
+            >核心概念</a
+          >
+          <a
+            class="nav-link py-4 border-b-2 border-transparent"
+            data-target="trading"
+            >交易入门</a
+          >
+          <a
+            class="nav-link py-4 border-b-2 border-transparent"
+            data-target="evaluation"
+            >项目评估</a
+          >
+          <a
+            class="nav-link py-4 border-b-2 border-transparent"
+            data-target="resources"
+            >学习资源</a
+          >
+        </nav>
+      </div>
+
+      <main id="app-content">
+        <!-- Section 1: Risk & Basics -->
+        <section id="risk" class="content-section space-y-12">
+          <div
+            class="bg-red-100 border-l-4 border-red-500 text-red-700 p-6 rounded-r-lg shadow-md"
+          >
+            <h2 class="text-2xl font-bold mb-4">第一步：了解风险与法规</h2>
+            <p class="mb-2">
+              <strong>高风险警告：</strong
+              >加密货币市场价格波动极大，您投入的资金可能全部损失。这并非一个能保证回报的市场，请务必只用您能承受损失的资金进行投资。
+            </p>
+            <p>
+              <strong>中国大陆法规：</strong
+              >根据中国人民银行等部门规定，虚拟货币相关业务活动属于非法金融活动。境外交易所向境内居民提供服务同样非法。参与此类活动存在极高的法律和资产风险。
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-2xl font-bold text-center mb-6">
+              核心金融概念（点击卡片翻转）
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <!-- Financial Concept Cards -->
+              <div
+                class="card-flip bg-white rounded-lg shadow-lg h-48 cursor-pointer"
+                onclick="this.classList.toggle('flipped')"
+              >
+                <div class="card-flip-inner">
+                  <div class="card-face rounded-lg bg-amber-100 p-4">
+                    <h4 class="text-xl font-bold">供需关系</h4>
+                  </div>
+                  <div
+                    class="card-back rounded-lg bg-amber-200 p-4 text-center"
+                  >
+                    <p class="text-sm">
+                      需求大于供给，价格上涨；反之则下跌。这是决定包括加密货币在内所有资产价格的基础。
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="card-flip bg-white rounded-lg shadow-lg h-48 cursor-pointer"
+                onclick="this.classList.toggle('flipped')"
+              >
+                <div class="card-flip-inner">
+                  <div class="card-face rounded-lg bg-amber-100 p-4">
+                    <h4 class="text-xl font-bold">市值</h4>
+                  </div>
+                  <div
+                    class="card-back rounded-lg bg-amber-200 p-4 text-center"
+                  >
+                    <p class="text-sm">
+                      市值 = 当前价格 ×
+                      流通数量。它是衡量项目规模和市场认可度的重要指标，但市值高不完全等于价值高。
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="card-flip bg-white rounded-lg shadow-lg h-48 cursor-pointer"
+                onclick="this.classList.toggle('flipped')"
+              >
+                <div class="card-flip-inner">
+                  <div class="card-face rounded-lg bg-amber-100 p-4">
+                    <h4 class="text-xl font-bold">风险与回报</h4>
+                  </div>
+                  <div
+                    class="card-back rounded-lg bg-amber-200 p-4 text-center"
+                  >
+                    <p class="text-sm">
+                      高潜在回报通常伴随着高风险。在投资前，必须了解自己的风险承受能力和投资期限。
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="card-flip bg-white rounded-lg shadow-lg h-48 cursor-pointer"
+                onclick="this.classList.toggle('flipped')"
+              >
+                <div class="card-flip-inner">
+                  <div class="card-face rounded-lg bg-amber-100 p-4">
+                    <h4 class="text-xl font-bold">资产配置</h4>
+                  </div>
+                  <div
+                    class="card-back rounded-lg bg-amber-200 p-4 text-center"
+                  >
+                    <p class="text-sm">
+                      将资金分散投资到不同类型的资产中（例如，加密货币、股票、债券），以平衡风险和回报。
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="card-flip bg-white rounded-lg shadow-lg h-48 cursor-pointer"
+                onclick="this.classList.toggle('flipped')"
+              >
+                <div class="card-flip-inner">
+                  <div class="card-face rounded-lg bg-amber-100 p-4">
+                    <h4 class="text-xl font-bold">多元化</h4>
+                  </div>
+                  <div
+                    class="card-back rounded-lg bg-amber-200 p-4 text-center"
+                  >
+                    <p class="text-sm">
+                      “不要把所有鸡蛋放在一个篮子里”。投资多种不同的加密货币，以降低单一项目失败带来的风险。
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="card-flip bg-white rounded-lg shadow-lg h-48 cursor-pointer"
+                onclick="this.classList.toggle('flipped')"
+              >
+                <div class="card-flip-inner">
+                  <div class="card-face rounded-lg bg-amber-100 p-4">
+                    <h4 class="text-xl font-bold">通货膨胀与利率</h4>
+                  </div>
+                  <div
+                    class="card-back rounded-lg bg-amber-200 p-4 text-center"
+                  >
+                    <p class="text-sm">
+                      宏观经济因素会影响加密市场。高通胀可能促使人们寻找替代资产，而高利率可能吸引资金流出风险市场。
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 2: Core Concepts -->
+        <section id="concepts" class="content-section">
+          <h2 class="text-3xl font-bold text-center mb-8">核心概念关系图</h2>
+          <p class="text-center text-gray-600 mb-8">
+            点击下方模块，查看各项技术的解释及其相互关系。
+          </p>
+          <div class="flex flex-col md:flex-row gap-8">
+            <!-- Concept Diagram -->
+            <div id="concept-nav" class="w-full md:w-1/3 space-y-4">
+              <button
+                data-concept="blockchain"
+                class="w-full text-left p-4 bg-white rounded-lg shadow-md hover:bg-amber-100 transition"
+              >
+                <strong>1. 区块链 (Blockchain)</strong><br /><span
+                  class="text-sm text-gray-500"
+                  >基础技术</span
+                >
+              </button>
+              <button
+                data-concept="crypto"
+                class="w-full text-left p-4 bg-white rounded-lg shadow-md hover:bg-amber-100 transition"
+              >
+                <strong>2. 加密货币 (Cryptocurrency)</strong><br /><span
+                  class="text-sm text-gray-500"
+                  >基于区块链的应用</span
+                >
+              </button>
+              <button
+                data-concept="contract"
+                class="w-full text-left p-4 bg-white rounded-lg shadow-md hover:bg-amber-100 transition"
+              >
+                <strong>3. 智能合约 (Smart Contract)</strong><br /><span
+                  class="text-sm text-gray-500"
+                  >自动化程序</span
+                >
+              </button>
+              <div class="flex space-x-4">
+                <button
+                  data-concept="defi"
+                  class="w-1/2 text-left p-4 bg-white rounded-lg shadow-md hover:bg-amber-100 transition"
+                >
+                  <strong>4. DeFi</strong><br /><span
+                    class="text-sm text-gray-500"
+                    >去中心化金融</span
+                  >
+                </button>
+                <button
+                  data-concept="nft"
+                  class="w-1/2 text-left p-4 bg-white rounded-lg shadow-md hover:bg-amber-100 transition"
+                >
+                  <strong>5. NFT</strong><br /><span
+                    class="text-sm text-gray-500"
+                    >非同质化代币</span
+                  >
+                </button>
+              </div>
+            </div>
+            <!-- Concept Detail Display -->
+            <div
+              id="concept-display"
+              class="w-full md:w-2/3 bg-white p-6 rounded-lg shadow-lg min-h-[300px]"
+            >
+              <!-- Content will be injected by JS -->
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 3: Trading -->
+        <section id="trading" class="content-section space-y-12">
+          <h2 class="text-3xl font-bold text-center mb-8">
+            交易入门：策略与风险
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+              <h3 class="text-xl font-bold mb-4">交易策略对比</h3>
+              <div class="flex justify-center border-b mb-4">
+                <button
+                  class="strategy-btn active px-4 py-2"
+                  data-strategy="hodl"
+                >
+                  长期持有 (HODL)
+                </button>
+                <button class="strategy-btn px-4 py-2" data-strategy="dca">
+                  定投 (DCA)
+                </button>
+                <button class="strategy-btn px-4 py-2" data-strategy="swing">
+                  波段/短线
+                </button>
+              </div>
+              <div id="strategy-display" class="text-sm">
+                <!-- Content will be injected by JS -->
+              </div>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+              <h3 class="text-xl font-bold mb-4 text-center">
+                风险管理：多元化可视化
+              </h3>
+              <p class="text-sm text-center text-gray-600 mb-4">
+                通过分散投资降低风险。调整下方滑块，观察投资组合的变化。
+              </p>
+              <div class="chart-container">
+                <canvas id="diversificationChart"></canvas>
+              </div>
+              <div class="mt-4 px-4">
+                <label
+                  for="btc-slider"
+                  class="block text-sm font-medium text-gray-700"
+                  >比特币 (BTC) 仓位: <span id="btc-value">50</span>%</label
+                >
+                <input
+                  id="btc-slider"
+                  type="range"
+                  min="0"
+                  max="100"
+                  value="50"
+                  class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-lg">
+            <h3 class="text-xl font-bold mb-4">关键风险管理工具</h3>
+            <ul class="space-y-4">
+              <li class="flex items-start">
+                <span class="text-green-500 font-bold mr-3 text-2xl">✓</span>
+                <div>
+                  <h4 class="font-semibold">止损 (Stop-Loss)</h4>
+                  <p class="text-sm text-gray-600">
+                    设置一个预定价位，当价格跌至该价位时自动卖出，以限制亏损。这是控制风险、避免情绪化决策的救生筏。
+                  </p>
+                </div>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-500 font-bold mr-3 text-2xl">✓</span>
+                <div>
+                  <h4 class="font-semibold">止盈 (Take-Profit)</h4>
+                  <p class="text-sm text-gray-600">
+                    设置一个预定价位，当价格涨至该价位时自动卖出，以锁定利润。克服贪婪，确保收益落袋为安。
+                  </p>
+                </div>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-500 font-bold mr-3 text-2xl">✓</span>
+                <div>
+                  <h4 class="font-semibold">仓位管理 (Position Sizing)</h4>
+                  <p class="text-sm text-gray-600">
+                    根据你的总资金和风险承受能力，计算每笔交易的投入金额。核心原则是：确保单笔交易的失败不会对你造成毁灭性打击。
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Section 4: Evaluation -->
+        <section id="evaluation" class="content-section">
+          <h2 class="text-3xl font-bold text-center mb-2">
+            项目评估：如何识别靠谱项目
+          </h2>
+          <p class="text-center text-gray-600 mb-8">
+            在投资前，学会做尽职调查至关重要。使用下面的清单来评估一个项目。
+          </p>
+          <div class="space-y-4">
+            <!-- Accordion Item -->
+            <div class="accordion-item bg-white rounded-lg shadow-md">
+              <button
+                class="accordion-header w-full flex justify-between items-center p-4 text-left font-semibold"
+              >
+                <span>1. 白皮书与路线图</span>
+                <span
+                  class="accordion-icon transform rotate-0 transition-transform text-amber-700 text-2xl"
+                  >+</span
+                >
+              </button>
+              <div
+                class="accordion-content hidden p-4 border-t border-gray-200"
+              >
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div class="bg-green-50 p-3 rounded-lg">
+                    <h4 class="font-bold text-green-700">👍 积极信号</h4>
+                    <ul
+                      class="list-disc list-inside text-sm text-green-600 mt-2"
+                    >
+                      <li>愿景清晰，技术细节详尽</li>
+                      <li>目标明确且可实现</li>
+                      <li>团队按时交付路线图里程碑</li>
+                    </ul>
+                  </div>
+                  <div class="bg-red-50 p-3 rounded-lg">
+                    <h4 class="font-bold text-red-700">🚩 危险信号</h4>
+                    <ul class="list-disc list-inside text-sm text-red-600 mt-2">
+                      <li>内容模糊，充斥流行语</li>
+                      <li>抄袭或套用模板</li>
+                      <li>承诺无法兑现，不按时交付</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Accordion Item -->
+            <div class="accordion-item bg-white rounded-lg shadow-md">
+              <button
+                class="accordion-header w-full flex justify-between items-center p-4 text-left font-semibold"
+              >
+                <span>2. 团队与顾问</span>
+                <span
+                  class="accordion-icon transform rotate-0 transition-transform text-amber-700 text-2xl"
+                  >+</span
+                >
+              </button>
+              <div
+                class="accordion-content hidden p-4 border-t border-gray-200"
+              >
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div class="bg-green-50 p-3 rounded-lg">
+                    <h4 class="font-bold text-green-700">👍 积极信号</h4>
+                    <ul
+                      class="list-disc list-inside text-sm text-green-600 mt-2"
+                    >
+                      <li>团队成员经验丰富，身份公开透明</li>
+                      <li>有可验证的过往成功项目</li>
+                      <li>积极与社区互动，接受反馈</li>
+                    </ul>
+                  </div>
+                  <div class="bg-red-50 p-3 rounded-lg">
+                    <h4 class="font-bold text-red-700">🚩 危险信号</h4>
+                    <ul class="list-disc list-inside text-sm text-red-600 mt-2">
+                      <li>团队匿名或缺乏经验</li>
+                      <li>创始人背景无法核实</li>
+                      <li>不与社区交流，逃避问题</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Accordion Item -->
+            <div class="accordion-item bg-white rounded-lg shadow-md">
+              <button
+                class="accordion-header w-full flex justify-between items-center p-4 text-left font-semibold"
+              >
+                <span>3. 代币经济学 (Tokenomics)</span>
+                <span
+                  class="accordion-icon transform rotate-0 transition-transform text-amber-700 text-2xl"
+                  >+</span
+                >
+              </button>
+              <div
+                class="accordion-content hidden p-4 border-t border-gray-200"
+              >
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div class="bg-green-50 p-3 rounded-lg">
+                    <h4 class="font-bold text-green-700">👍 积极信号</h4>
+                    <ul
+                      class="list-disc list-inside text-sm text-green-600 mt-2"
+                    >
+                      <li>供应、分配、用途清晰透明</li>
+                      <li>代币有实际用途（如治理、费用）</li>
+                      <li>合理的通胀/通缩机制</li>
+                    </ul>
+                  </div>
+                  <div class="bg-red-50 p-3 rounded-lg">
+                    <h4 class="font-bold text-red-700">🚩 危险信号</h4>
+                    <ul class="list-disc list-inside text-sm text-red-600 mt-2">
+                      <li>分配方式高度集中于团队</li>
+                      <li>代币缺乏实际用途，纯属炒作</li>
+                      <li>经济模型不可持续</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Accordion Item -->
+            <div class="accordion-item bg-white rounded-lg shadow-md">
+              <button
+                class="accordion-header w-full flex justify-between items-center p-4 text-left font-semibold"
+              >
+                <span>4. 社区活跃度</span>
+                <span
+                  class="accordion-icon transform rotate-0 transition-transform text-amber-700 text-2xl"
+                  >+</span
+                >
+              </button>
+              <div
+                class="accordion-content hidden p-4 border-t border-gray-200"
+              >
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div class="bg-green-50 p-3 rounded-lg">
+                    <h4 class="font-bold text-green-700">👍 积极信号</h4>
+                    <ul
+                      class="list-disc list-inside text-sm text-green-600 mt-2"
+                    >
+                      <li>社区积极讨论技术和发展</li>
+                      <li>开发者和用户之间有健康互动</li>
+                      <li>对问题和批评持开放态度</li>
+                    </ul>
+                  </div>
+                  <div class="bg-red-50 p-3 rounded-lg">
+                    <h4 class="font-bold text-red-700">🚩 危险信号</h4>
+                    <ul class="list-disc list-inside text-sm text-red-600 mt-2">
+                      <li>社区只谈价格，充满炒作情绪</li>
+                      <li>机器人和虚假账户泛滥</li>
+                      <li>删除负面评论，压制不同声音</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 5: Resources -->
+        <section id="resources" class="content-section">
+          <h2 class="text-3xl font-bold text-center mb-2">权威学习资源库</h2>
+          <p class="text-center text-gray-600 mb-8">
+            持续学习是成功的关键。以下是推荐的平台和博主，使用筛选器进行查找。
+          </p>
+          <div
+            id="resource-filters"
+            class="flex justify-center flex-wrap gap-2 mb-8"
+          >
+            <button
+              class="resource-filter-btn active px-4 py-2 bg-amber-600 text-white rounded-full"
+              data-filter="all"
+            >
+              全部
+            </button>
+            <button
+              class="resource-filter-btn px-4 py-2 bg-white text-amber-700 rounded-full border border-amber-600"
+              data-filter="platform"
+            >
+              教育平台
+            </button>
+            <button
+              class="resource-filter-btn px-4 py-2 bg-white text-amber-700 rounded-full border border-amber-600"
+              data-filter="cn"
+            >
+              中文区
+            </button>
+            <button
+              class="resource-filter-btn px-4 py-2 bg-white text-amber-700 rounded-full border border-amber-600"
+              data-filter="intl"
+            >
+              国际区
+            </button>
+          </div>
+          <div
+            id="resource-grid"
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
+            <!-- Resources will be injected by JS -->
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const navLinks = document.querySelectorAll(".nav-link");
+        const contentSections = document.querySelectorAll(".content-section");
+
+        // Data for dynamic content
+        const conceptData = {
+          blockchain: {
+            title: "区块链 (Blockchain)",
+            description:
+              "一种先进的分布式数据库。数据以“区块”形式存储，并以加密方式链接成“链”。核心特性是去中心化、不可篡改和透明。它是所有加密货币和相关技术的基础。",
+            relations: ["crypto", "contract"],
+          },
+          crypto: {
+            title: "加密货币 (Cryptocurrency)",
+            description:
+              "基于区块链技术构建的数字或虚拟货币，如比特币。它使用密码学来确保交易安全，不依赖中央银行或政府。",
+            relations: ["blockchain"],
+          },
+          contract: {
+            title: "智能合约 (Smart Contract)",
+            description:
+              "存储在区块链上的自动化程序。当预设条件满足时，它们会自动执行协议条款。这是DeFi和NFT等应用的核心。",
+            relations: ["blockchain", "defi", "nft"],
+          },
+          defi: {
+            title: "DeFi (去中心化金融)",
+            description:
+              "在区块链上重建传统金融服务（如借贷、交易）的生态系统，无需银行等中介机构。它依赖智能合约来自动化交易。",
+            relations: ["contract"],
+          },
+          nft: {
+            title: "NFT (非同质化代币)",
+            description:
+              "代表独特数字资产（如艺术品、收藏品）所有权的代币。每个NFT都是独一无二、不可替代的，其所有权记录在区块链上。",
+            relations: ["contract"],
+          },
+        };
+
+        const strategyData = {
+          hodl: {
+            title: "长期持有 (HODL)",
+            description:
+              "购买并长期持有加密货币，相信其长期价值。适合不愿频繁操作、看好技术未来的初学者。",
+            pros: "简单，省心，可能获得巨大长期回报。",
+            cons: "需承受巨大短期波动，资金流动性差。",
+          },
+          dca: {
+            title: "定投 (Dollar-Cost Averaging)",
+            description:
+              "无论价格高低，定期投入固定金额购买。这可以平摊购买成本，降低择时风险。",
+            pros: "降低波动影响，培养投资纪律，无需预测市场。",
+            cons: "牛市中收益可能低于一次性买入，是“钝化”策略。",
+          },
+          swing: {
+            title: "波段/短线交易",
+            description:
+              "通过预测短期或中期价格波动进行买卖获利。波段交易持仓数天至数周，短线交易在一天内完成。",
+            pros: "潜在收益快，资金周转率高。",
+            cons: "风险极高，需要大量时间、专业知识和强大的心理素质，不适合新手。",
+          },
+        };
+
+        const resourceData = [
+          {
+            name: "Binance Academy",
+            category: "platform",
+            desc: "币安官方的免费教育平台，内容全面，从入门到精通。",
+          },
+          {
+            name: "Investopedia",
+            category: "platform",
+            desc: "权威金融知识网站，对加密术语有详尽解释。",
+          },
+          {
+            name: "Coin Bureau",
+            category: "intl",
+            desc: "YouTube上最受欢迎的加密分析频道之一，内容深入浅出。",
+          },
+          {
+            name: "Andreas Antonopoulos",
+            category: "intl",
+            desc: "比特币和区块链技术的布道者，视频深刻且易于理解。",
+          },
+          {
+            name: "Crypto Casey",
+            category: "intl",
+            desc: "专注于为初学者提供操作指南和安全教育的YouTube频道。",
+          },
+          {
+            name: "吴说区块链",
+            category: "cn",
+            desc: "资深媒体人出品，提供关于中国加密行业、政策的独家见解。",
+          },
+          {
+            name: "区块趋势",
+            category: "cn",
+            desc: "专注于区块链技术讨论和访谈的播客，帮助理解技术本身。",
+          },
+          {
+            name: "altFINS Blog",
+            category: "intl",
+            desc: "提供技术分析、基本面分析和市场趋势的专业博客。",
+          },
+          {
+            name: "Kraken Learn",
+            category: "platform",
+            desc: "Kraken交易所的学习中心，提供各种加密概念的指南。",
+          },
+        ];
+
+        // Navigation Logic
+        function switchTab(targetId) {
+          navLinks.forEach((link) => {
+            link.classList.toggle("active", link.dataset.target === targetId);
+          });
+          contentSections.forEach((section) => {
+            section.classList.toggle("active", section.id === targetId);
+          });
+          window.scrollTo(0, 0);
+        }
+
+        navLinks.forEach((link) => {
+          link.addEventListener("click", () => switchTab(link.dataset.target));
+        });
+        switchTab("risk"); // Set initial tab
+
+        // Core Concepts Logic
+        const conceptNav = document.getElementById("concept-nav");
+        const conceptDisplay = document.getElementById("concept-display");
+        const conceptButtons = conceptNav.querySelectorAll("button");
+
+        function displayConcept(conceptId) {
+          const data = conceptData[conceptId];
+          conceptDisplay.innerHTML = `
+                    <h3 class="text-2xl font-bold text-amber-800 mb-4">${data.title}</h3>
+                    <p class="text-gray-700">${data.description}</p>
+                `;
+          conceptButtons.forEach((btn) => {
+            const isRelated =
+              data.relations.includes(btn.dataset.concept) ||
+              btn.dataset.concept === conceptId;
+            btn.style.opacity = isRelated ? "1" : "0.5";
+            btn.style.transform = isRelated ? "scale(1.02)" : "scale(1)";
+          });
+        }
+        conceptNav.addEventListener("click", (e) => {
+          const button = e.target.closest("button");
+          if (button) {
+            displayConcept(button.dataset.concept);
+          }
+        });
+        displayConcept("blockchain"); // Set initial concept
+
+        // Trading Strategy Logic
+        const strategyBtns = document.querySelectorAll(".strategy-btn");
+        const strategyDisplay = document.getElementById("strategy-display");
+
+        function displayStrategy(strategyId) {
+          const data = strategyData[strategyId];
+          strategyDisplay.innerHTML = `
+                    <h4 class="font-bold text-lg mb-2">${data.title}</h4>
+                    <p class="mb-3">${data.description}</p>
+                    <p class="mb-1"><strong>优点:</strong> ${data.pros}</p>
+                    <p><strong>缺点:</strong> ${data.cons}</p>
+                `;
+          strategyBtns.forEach((btn) =>
+            btn.classList.toggle("active", btn.dataset.strategy === strategyId)
+          );
+        }
+
+        strategyBtns.forEach((btn) => {
+          btn.addEventListener("click", () =>
+            displayStrategy(btn.dataset.strategy)
+          );
+        });
+        displayStrategy("hodl"); // Initial display
+
+        // Diversification Chart
+        const ctx = document
+          .getElementById("diversificationChart")
+          .getContext("2d");
+        const diversificationChart = new Chart(ctx, {
+          type: "doughnut",
+          data: {
+            labels: ["比特币 (BTC)", "以太坊 (ETH)", "其他山寨币"],
+            datasets: [
+              {
+                data: [50, 30, 20],
+                backgroundColor: ["#f59e0b", "#6b7280", "#d1d5db"],
+                borderColor: "#f9fafb",
+                borderWidth: 4,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            cutout: "60%",
+            plugins: {
+              legend: {
+                position: "bottom",
+              },
+              tooltip: {
+                callbacks: {
+                  label: function (context) {
+                    return context.label + ": " + context.raw + "%";
+                  },
+                },
+              },
+            },
+          },
+        });
+
+        const btcSlider = document.getElementById("btc-slider");
+        const btcValueSpan = document.getElementById("btc-value");
+
+        btcSlider.addEventListener("input", (e) => {
+          const btcValue = parseInt(e.target.value);
+          const remaining = 100 - btcValue;
+          const ethValue = Math.floor(remaining * 0.6); // 60% of remainder
+          const otherValue = remaining - ethValue;
+
+          btcValueSpan.textContent = btcValue;
+          diversificationChart.data.datasets[0].data = [
+            btcValue,
+            ethValue,
+            otherValue,
+          ];
+          diversificationChart.update();
+        });
+
+        // Evaluation Accordion
+        const accordionItems = document.querySelectorAll(".accordion-item");
+        accordionItems.forEach((item) => {
+          const header = item.querySelector(".accordion-header");
+          const content = item.querySelector(".accordion-content");
+          const icon = item.querySelector(".accordion-icon");
+          header.addEventListener("click", () => {
+            const isVisible = !content.classList.contains("hidden");
+            // Optional: Close other accordions
+            // accordionItems.forEach(otherItem => {
+            //    otherItem.querySelector('.accordion-content').classList.add('hidden');
+            //    otherItem.querySelector('.accordion-icon').textContent = '+';
+            // });
+            content.classList.toggle("hidden");
+            icon.textContent = isVisible ? "+" : "-";
+          });
+        });
+
+        // Resource Library Logic
+        const resourceFilters = document.getElementById("resource-filters");
+        const resourceGrid = document.getElementById("resource-grid");
+
+        function renderResources(filter = "all") {
+          resourceGrid.innerHTML = "";
+          const filteredData =
+            filter === "all"
+              ? resourceData
+              : resourceData.filter((r) => r.category === filter);
+
+          filteredData.forEach((resource) => {
+            const card = document.createElement("div");
+            card.className = "resource-card bg-white p-4 rounded-lg shadow-md";
+            card.innerHTML = `
+                        <h4 class="font-bold text-amber-800">${resource.name}</h4>
+                        <p class="text-sm text-gray-600">${resource.desc}</p>
+                    `;
+            resourceGrid.appendChild(card);
+          });
+        }
+
+        resourceFilters.addEventListener("click", (e) => {
+          if (e.target.tagName === "BUTTON") {
+            resourceFilters
+              .querySelector(".active")
+              .classList.remove("active", "bg-amber-600", "text-white");
+            resourceFilters
+              .querySelector(".active")
+              .classList.add("bg-white", "text-amber-700");
+            e.target.classList.add("active", "bg-amber-600", "text-white");
+            e.target.classList.remove("bg-white", "text-amber-700");
+            renderResources(e.target.dataset.filter);
+          }
+        });
+        renderResources(); // Initial render
+      });
+    </script>
+  </body>
+</html>
