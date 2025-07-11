@@ -28,6 +28,7 @@
 
 ### 2️⃣ Solidity 全套开发实战（英文）
 
+- **学习阶段**：[Remix](https://github.com/JNHFlow21/solidity-learning) - [Foundry](https://github.com/JNHFlow21/token-presale-foundry) - ...
 - **学习资源**：[Patrick Collins 的完整 Solidity 教程（YouTube）](https://www.youtube.com/watch?v=-1GB6m39-rM&t=24284s)
 - **学习方式**：边看视频边敲代码，章节同步编写练习
 - **我的项目**：
