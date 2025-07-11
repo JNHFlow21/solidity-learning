@@ -30,13 +30,15 @@
 
 - **学习资源**：[Patrick Collins 的完整 Solidity 教程（YouTube）](https://www.youtube.com/watch?v=-1GB6m39-rM&t=24284s)
 - **学习方式**：边看视频边敲代码，章节同步编写练习
-- **我的代码**：
-  - [foundry-token-presale](https://github.com/JNHFlow21/token-presale-foundry)
+- **我的项目**：
+  - [foundry-token-presale（前端+合约）](https://github.com/JNHFlow21/token-presale-foundry):Token Presale Foundry 是一个完整的代币预售解决方案，允许项目方通过智能合约进行去中心化的代币预售。用户可以使用ETH参与预售，系统自动使用Chainlink预言机将ETH转换为等值USD，并在预售结束后按照设定比例线性释放代币给参与者。
 - **学习工具**：
   - [ETH 单位换算工具（eth-converter）](https://eth-converter.com/)
   - [Sepolia 测试网水龙头（Google Faucet）](https://cloud.google.com/application/web3/faucet/ethereum/sepolia)
   - [Chainlink Price Feed 地址文档](https://docs.chain.link/data-feeds/price-feeds/addresses?page=1&testnetPage=1)
   - [Chainlink 如何使用数据喂价教程](https://docs.chain.link/data-feeds/using-data-feeds)
+  - [MetaMask 连接其他网络，连接本地的 Anvil 区块链节点](https://blog.csdn.net/fjh_ready_sonaa/article/details/149271836)
+  - [Foundry智能合约测试设计流程](https://blog.csdn.net/fjh_ready_sonaa/article/details/149234167)
 
 ---
 
