@@ -40,6 +40,7 @@
   - [Chainlink 如何使用数据喂价教程](https://docs.chain.link/data-feeds/using-data-feeds)
   - [MetaMask 连接其他网络，连接本地的 Anvil 区块链节点](https://blog.csdn.net/fjh_ready_sonaa/article/details/149271836)
   - [Foundry智能合约测试设计流程](https://blog.csdn.net/fjh_ready_sonaa/article/details/149234167)
+  - [本地使用chainlink：chainlink-brownie-contracts](https://github.com/smartcontractkit/chainlink-brownie-contracts)
 
 ---
 
