@@ -6,6 +6,8 @@ Web3 Study Log 005
 
 这几天又是一堆事情，总算是把founry搞完了，在之前的token-presale合约上做的二次开发，写的测试，部署。难度不大，就是挺繁琐的。国内不要按照教程使用alchemy，要使用infuro，还遇到什么问题，我忘了，记不清了。这个智能合约感觉写精度需要注意，一不小心就容易搞错，精度对不齐，出现些莫名其妙的错误。
 
+
+
 写测试就按照https://blog.csdn.net/fjh_ready_sonaa/article/details/149234167?spm=1001.2014.3001.5501写，让ai写，写完了检查一下就好。
 
 我的repo：https://github.com/JNHFlow21/solidity-learning（学习资料在这里）

@@ -6,7 +6,7 @@ Web3 Study Log 004
 
 O_O，对了，希望刷到的朋友，想学习智能合约开发的朋友可以star我的仓库啊：https://github.com/JNHFlow21/solidity-learning，我会一直持续更新的，里面有我自己整理使用的智能合约开发的资料。
 
-**Web3 Study Log 003**
+**Web3 Study Log 004**
 
 **2025-07-06**
 
