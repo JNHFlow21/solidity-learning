@@ -41,7 +41,7 @@
 - **我的文章**：
   - [MetaMask 连接其他网络，连接本地的 Anvil 区块链节点](https://blog.csdn.net/fjh_ready_sonaa/article/details/149271836)
   - [Foundry智能合约测试设计流程](https://blog.csdn.net/fjh_ready_sonaa/article/details/149234167)
-  - [Foundry集成VRF教程(含mock)，解决erro:Arithmetic Underflow in createSubscription](https://github.com/JNHFlow21/GameFi-Treasure-Dungeon/blob/main/helpdoc/VRF-ZH.md)
+  - [Foundry集成VRF教程(含mock)，解决erro:Arithmetic Underflow in createSubscription](https://blog.csdn.net/fjh_ready_sonaa/article/details/149450429)
 ---
 
 ### 3️⃣ 未完待续...
