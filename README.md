@@ -1,8 +1,6 @@
 # Solidity 学习笔记仓库
 
-本仓库是我系统学习智能合约开发（Solidity）的过程记录与代码合集。内容将**持续更新**，包括视频学习笔记、实战练习题、综合项目等，供自己复习巩固，也希望能帮助到其他 Web3 学习者。
-目前的目标是把 2️⃣ Solidity 的课程学习完，然后去参加一个黑客松。
-
+本仓库是我系统学习智能合约开发的过程记录与代码合集。内容将**持续更新**，包括视频学习笔记、实战练习题、综合项目等，供自己复习巩固，也希望能帮助到其他 Web3 学习者。
 ---
 
 ## 💡 学习心得
@@ -26,22 +24,24 @@
 
 ---
 
-### 2️⃣ Solidity 全套开发实战（英文）
+### 2️⃣ 智能合约 全套开发实战（英文）
 
-- **学习阶段**：[Remix](https://github.com/JNHFlow21/solidity-learning) - [Foundry](https://github.com/JNHFlow21/token-presale-foundry) - ...
+- **学习阶段**：[Remix](https://github.com/JNHFlow21/solidity-learning) - [Foundry](https://github.com/JNHFlow21/token-presale-foundry) - [Advanced Foundry](https://github.com/JNHFlow21/GameFi-Treasure-Dungeon) - ...
 - **学习资源**：[Patrick Collins 的完整 Solidity 教程（YouTube）](https://www.youtube.com/watch?v=-1GB6m39-rM&t=24284s)
 - **学习方式**：边看视频边敲代码，章节同步编写练习
 - **我的项目**：
   - [foundry-token-presale（前端+合约）](https://github.com/JNHFlow21/token-presale-foundry):Token Presale Foundry 是一个完整的代币预售解决方案，允许项目方通过智能合约进行去中心化的代币预售。用户可以使用ETH参与预售，系统自动使用Chainlink预言机将ETH转换为等值USD，并在预售结束后按照设定比例线性释放代币给参与者。
+  - [GameFi Treasure Dungeon](https://github.com/JNHFlow21/GameFi-Treasure-Dungeon):GameFi Treasure Dungeon 是一个基于 Solidity & Foundry 构建的链上小游戏。玩家支付固定门票（约 10 美元等值的 ETH）进入地牢探险，一进入地牢就会触发随机返现（最高返现90%的进入费用），同时呆在地牢内可以参加每天的定时抽奖，幸运玩家可以获得奖池的全部ETH。> 还有很多想法，以后慢慢迭代优化，做成一个菠菜游戏，比如参考以前的捕鱼机的一些设定，调整下爆率，反正就要让人感觉爽。
 - **学习工具**：
   - [ETH 单位换算工具（eth-converter）](https://eth-converter.com/)
   - [Sepolia 测试网水龙头（Google Faucet）](https://cloud.google.com/application/web3/faucet/ethereum/sepolia)
   - [Chainlink Price Feed 地址文档](https://docs.chain.link/data-feeds/price-feeds/addresses?page=1&testnetPage=1)
   - [Chainlink 如何使用数据喂价教程](https://docs.chain.link/data-feeds/using-data-feeds)
+  - [本地使用chainlink：chainlink-brownie-contracts](https://github.com/smartcontractkit/chainlink-brownie-contracts)
+- **我的文章**：
   - [MetaMask 连接其他网络，连接本地的 Anvil 区块链节点](https://blog.csdn.net/fjh_ready_sonaa/article/details/149271836)
   - [Foundry智能合约测试设计流程](https://blog.csdn.net/fjh_ready_sonaa/article/details/149234167)
-  - [本地使用chainlink：chainlink-brownie-contracts](https://github.com/smartcontractkit/chainlink-brownie-contracts)
-
+  - [Foundry集成VRF教程(含mock)，解决erro:Arithmetic Underflow in createSubscription](https://github.com/JNHFlow21/GameFi-Treasure-Dungeon/blob/main/helpdoc/VRF-ZH.md)
 ---
 
 ### 3️⃣ 未完待续...
