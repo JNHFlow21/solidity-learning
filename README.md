@@ -42,6 +42,7 @@
   - [MetaMask 连接其他网络，连接本地的 Anvil 区块链节点](https://blog.csdn.net/fjh_ready_sonaa/article/details/149271836)
   - [Foundry 智能合约测试设计流程](https://blog.csdn.net/fjh_ready_sonaa/article/details/149234167)
   - [Foundry 集成 VRF 教程(含 mock)，解决 erro:Arithmetic Underflow in createSubscription](https://blog.csdn.net/fjh_ready_sonaa/article/details/149450429)
+  - [ERC721-链上/链下 NFT 编写流程](https://blog.csdn.net/fjh_ready_sonaa/article/details/149877436?spm=1001.2014.3001.5502)
 
 ---
 
