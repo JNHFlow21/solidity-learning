@@ -75,5 +75,5 @@ solidity-learning/
 
 - GitHub: @JNHFlow21
 - 小红书: 1017180966
-- X: [JNH.Flow21](https://x.com/jerry4junhao)
-- TG: @JJJFlow21
+- X: [JNHFlow21](https://x.com/JNHFlow21)
+- TG: @JNHFlow21
