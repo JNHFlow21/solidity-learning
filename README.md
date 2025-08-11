@@ -32,6 +32,7 @@
   - [foundry-token-presale（前端+合约）](https://github.com/JNHFlow21/token-presale-foundry):Token Presale Foundry 是一个完整的代币预售解决方案，允许项目方通过智能合约进行去中心化的代币预售。用户可以使用 ETH 参与预售，系统自动使用 Chainlink 预言机将 ETH 转换为等值 USD，并在预售结束后按照设定比例线性释放代币给参与者。
   - [GameFi Treasure Dungeon](https://github.com/JNHFlow21/GameFi-Treasure-Dungeon):GameFi Treasure Dungeon 是一个基于 Solidity & Foundry 构建的链上小游戏。玩家支付固定门票（约 10 美元等值的 ETH）进入地牢探险，一进入地牢就会触发随机返现（最高返现 90%的进入费用），同时呆在地牢内可以参加每天的定时抽奖，幸运玩家可以获得奖池的全部 ETH。> 还有很多想法，以后慢慢迭代优化，做成一个菠菜游戏，比如参考以前的捕鱼机的一些设定，调整下爆率，反正就要让人感觉爽。
   - [RWA-MVP](https://github.com/JNHFlow21/RWA-MVP):这是一套面向「链上托管现实资产」场景的轻量级示范工程。它同时解决了合规准入 (KYC)、资产托管 (USDC 金库)、份额映射 (ERC-20) 与一键部署测试的开发痛点，帮助团队在最短时间内完成从本地开发、自动化测试到公共测试网发布的全流程验证。通过模块化设计，你可以按需替换资产类型、升级治理模式或接入任何 DeFi 收益策略，在保障合规性的同时快速迭代业务逻辑，是启动 RWA 产品原型的理想起点。
+  - [DeFi-DecentralizedStableCoin](https://github.com/JNHFlow21/DeFi-DecentralizedStableCoin):这是一个去中心化、超额抵押、锚定美元的稳定币协议（DSC）：支持用 WETH/WBTC 一键“抵押+铸币/还债+赎回”，默认约 200% 抵押率，实时健康因子风控，清算人享约 10% 激励，价格来自 Chainlink；一套完善的单测/模糊/不变量测试与脚本，开箱即用、快速上手。立即试用并参与共建!
 - **学习工具**：
   - [ETH 单位换算工具（eth-converter）](https://eth-converter.com/)
   - [Sepolia 测试网水龙头（Google Faucet）](https://cloud.google.com/application/web3/faucet/ethereum/sepolia)
@@ -44,6 +45,7 @@
   - [Foundry 集成 VRF 教程(含 mock)，解决 erro:Arithmetic Underflow in createSubscription](https://blog.csdn.net/fjh_ready_sonaa/article/details/149450429)
   - [ERC721-链上/链下 NFT 编写流程](https://blog.csdn.net/fjh_ready_sonaa/article/details/149877436?spm=1001.2014.3001.5502)
   - [Uniswap v1-v4机制详解](https://immense-cornet-074.notion.site/Uniswap-v1-v4-2459cbb1c861806ba793d9932df5a905#2459cbb1c861809cbf95f62707d4499f)
+  - [Aave借贷协议的收益模型](https://immense-cornet-074.notion.site/Aave-2459cbb1c86180778f8fce339598fe72)
 
 ---
 
